@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Quantity</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <p class="mb-4 text-3xl bold italic ml-4" >Cart Quantity</p>
+    <div class="ml-4">
+      <button
+        class="bg-gray-200 border border-2 p-2"
+        onclick="
+      console.log(`Cart Quantity: ${cartQuantity}`)"
+      >
+        Show Quantity
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+    cartQuantity = cartQuantity + 1
+    console.log(`Cart Quantity: ${cartQuantity}`);
+    
+    "
+      >Add cart
+      </button>
+
+      <button class="bg-gray-200 border-2 p-2" onclick=
+      " cartQuantity = cartQuantity + 2
+      console.log(console.log(`Cart Quantity: ${cartQuantity}`)
+      );">+2</button>
+
+      <button class="bg-gray-200 border-2 p-2"  onclick=
+      " cartQuantity = cartQuantity + 3
+      console.log(console.log(`Cart Quantity: ${cartQuantity}`)
+      );">+3</button>
+
+      <button class="bg-gray-200 border-2 p-2" onclick="
+      cartQuantity = 0;
+      console.log(`Cart Quantity: ${cartQuantity}`)
+      ;">Reset Cart </button>
+    </div>
+
+    <script>
+      let cartQuantity = 0;
+    </script>
+  </body>
+</html>
