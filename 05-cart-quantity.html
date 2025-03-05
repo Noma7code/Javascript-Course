@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <p class="mb-4 text-3xl bold italic ml-4" >Cart Quantity</p>
+    <p class="mb-4 text-3xl bold italic ml-4">Cart Quantity</p>
     <div class="ml-4">
       <button
         class="bg-gray-200 border border-2 p-2"
@@ -20,31 +20,104 @@
       <button
         class="bg-gray-200 border-2 p-2"
         onclick="
-    cartQuantity = cartQuantity + 1
-    console.log(`Cart Quantity: ${cartQuantity}`);
-    
-    "
-      >Add cart
+        if(cartQuantity+1 >maxQuantity){ // the cartQuantity should not exceed maxQuantity:10
+          console.log('Cart is full')
+        }else{
+          cartQuantity = cartQuantity + 1
+          console.log(`Cart Quantity: ${cartQuantity}`)}"
+        > Add cart
       </button>
 
-      <button class="bg-gray-200 border-2 p-2" onclick=
-      " cartQuantity = cartQuantity + 2
-      console.log(console.log(`Cart Quantity: ${cartQuantity}`)
-      );">+2</button>
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick=" 
+        if(cartQuantity+2>maxQuantity){
+        console.log('Cart is full')
+        }else{
+        cartQuantity = cartQuantity + 2
+        console.log(`Cart Quantity: ${cartQuantity}`)};">+2
+      </button>
 
-      <button class="bg-gray-200 border-2 p-2"  onclick=
-      " cartQuantity = cartQuantity + 3
-      console.log(console.log(`Cart Quantity: ${cartQuantity}`)
-      );">+3</button>
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick=" if(cartQuantity+3>maxQuantity){
+          console.log('Cart is full');
+        }else{
+        cartQuantity = cartQuantity + 3
+        console.log(`Cart Quantity: ${cartQuantity}`);}">+3
+      </button>
 
-      <button class="bg-gray-200 border-2 p-2" onclick="
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
       cartQuantity = 0;
-      console.log(`Cart Quantity: ${cartQuantity}`)
-      ;">Reset Cart </button>
+      console.log(`Cart Quantity: ${cartQuantity}`);">Reset Cart
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+      if(cartQuantity+4>maxQuantity){
+        console.log('Cart is full');
+      }else{ 
+        cartQuantity+=4;
+        console.log(`Cart Quantity: ${cartQuantity}`);}">+4
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+      if(cartQuantity+5>maxQuantity){
+        console.log('Cart is full');
+        cartQuantity = maxQuantity;
+      }else{ 
+        cartQuantity+=5;
+        console.log(`Cart Quantity: ${cartQuantity}`);}">+5
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+          
+          if(cartQuantity-1<0){
+            alert('Not enough items in cart')
+            cartQuantity = 0;
+            console.log('Cart Quantity: 0');
+          }else{
+            cartQuantity-=1;
+            console.log(`Cart Quantity: ${cartQuantity}`);}">Remove Cart
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+       
+        if(cartQuantity-2<0){
+            alert('Not enough items in cart')
+            cartQuantity = 0;
+            console.log('Cart Quantity: 0');
+          }else{
+            cartQuantity-=2;
+            console.log(`Cart Quantity: ${cartQuantity}`)}">-2
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+     
+         if(cartQuantity-3<0){
+            alert('Not enough items in cart')
+            cartQuantity = 0;
+            console.log('Cart Quantity: 0');
+          }else{
+            cartQuantity-=3;
+            console.log(`Cart Quantity: ${cartQuantity}`);}">-3
+      </button>
     </div>
 
     <script>
       let cartQuantity = 0;
+      const maxQuantity = 10;
     </script>
   </body>
 </html>
