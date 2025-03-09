@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <title>Calculator</title>
+</head>
+<body class="p-4 m-4 ">
+
+  <p >
+    <button class="bg-gray-200 border border-2 p-3" onclick="
+      calculate(1)">1
+
+    </button>
+    <button class="bg-gray-200 border border-2 p-3 " onclick="
+      calculate(2);">2
+      
+    </button>
+    <button class="bg-gray-200 border border-2 p-3"onclick="
+      calculate(3);">3
+      
+    </button>
+    <button class="bg-gray-200 border border-2 p-3" onclick="
+     calculate('+');">+
+    </button>
+
+    
+  </p>  
+
+  <p>
+    <button class="bg-gray-200 border border-2 p-3" onclick="
+      calculate(4);">4
+
+    </button>
+    <button class="bg-gray-200 border border-2 p-3" onclick="
+      calculate(5);">5
+
+    </button>
+    <button class="bg-gray-200 border border-2 p-3" onclick="
+      calculate(6);">6
+
+    </button>
+    <button class="bg-gray-200 border border-2 p-3 pr-4" onclick="
+      calculate('-');">-
+    </button>
+  </p>
+
+  
+  <p>
+    <button class="bg-gray-200 border border-2 p-3" onclick="
+      calculate(7);">7
+
+    </button>
+    <button class="bg-gray-200 border border-2 p-3" onclick="
+      calculate(8);">8
+
+    </button>
+    <button class="bg-gray-200 border border-2 p-3" onclick="
+      calculate(9)">9
+
+    </button>
+    <button class="bg-gray-200 border border-2 p-3 pr-3.5" onclick="
+      calculate('*');">*
+    </button>
+  </p>
+
+  <p>
+    <button class="bg-gray-200 border border-2 p-3 " onclick="
+      calculate(0);">0
+      
+    </button>
+
+    <button class="bg-gray-200 border border-2 p-3 pr-4.5 " onclick="
+     calculate('.');">.
+      
+    </button>
+
+    <button class="bg-gray-200 border border-2 p-3 pr-2" onclick="
+      calculation = eval(calculation);
+      console.log(calculation);">=
+      
+    </button>
+
+    <button class="bg-gray-200 border border-2 p-3 pr-3.5" onclick="
+       calculate('/');">/
+      
+    </button>
+  </p>
+
+  <p>
+    <button class="bg-gray-200 border border-2 p-3 pr-6" onclick="
+      console.log(calculation =' '); ">Clear
+      
+    </button>
+  </p>
+
+  <script>
+    let calculation = "";
+
+    function calculate(value){
+      calculation+=value ;
+      console.log(calculation);
+    }
+   
+    
+  </script>
+  
+  
+</body>
+</html>
