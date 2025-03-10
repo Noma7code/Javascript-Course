@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart Quantity</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <p class="mb-4 text-3xl bold italic ml-4">Cart Quantity</p>
+    <div class="ml-4">
+      <button
+        class="bg-gray-200 border border-2 p-2"
+        onclick="
+      console.log(`Cart Quantity: ${cartQuantity}`)"
+      >
+        Show Quantity
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+        updateCartQuantity(1);"
+        > Add cart
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick=" 
+         updateCartQuantity(2)">+2
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="  updateCartQuantity(3)">+3
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+      cartQuantity = 0;
+      console.log(`Cart Quantity: ${cartQuantity}`);">Reset Cart
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+       updateCartQuantity(4)">+4
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+      updateCartQuantity(5)">+5
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+          
+          updateCartQuantity(-1)">Remove Cart
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+       
+       updateCartQuantity(-2)">-2
+      </button>
+
+      <button
+        class="bg-gray-200 border-2 p-2"
+        onclick="
+      updateCartQuantity(-3)">-3
+      </button>
+    </div>
+
+    <script>
+      let cartQuantity = 0;
+      const maxQuantity = 10;
+
+      function updateCartQuantity(value){
+        if(cartQuantity+value >=maxQuantity){  
+            alert('Cart is full');
+            console.log(`Cart Quantity:10`);
+            return;
+        }else if(cartQuantity+value<0){
+          alert('Not enough items in cart')
+          console.log('Cart Quantity: 0');
+          return;
+       }else{
+            cartQuantity+=value;
+            console.log(`Cart Quantity: ${cartQuantity}`);
+          }
+      }  
+
+            
+
+      
+    </script>
+  </body>
+</html>
