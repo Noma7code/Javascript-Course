@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <script>
+      const product = {
+        name: "oil", //property-value pair
+        price: 390,
+      };
+      console.log(product);
+      console.log(product.name); //display of  the object property
+      console.log(product.price);
+
+      product.name = "onion"; // changing property values
+      console.log(product.name);
+
+      product.newProperty = "water"; // adding new properties
+
+      console.log(product);
+
+      delete product.newProperty; //removing a property
+      console.log(product);
+
+      //using square bracket to access object values : bracket notation
+      const product2 = {
+        name: "shirt",
+        "delivery-time": "1 day",
+        //nested object
+        rating: {
+          stars: 5,
+          count: 89,
+        },
+        fun: function function1() {
+          console.log("function inside object");
+        },
+      };
+      console.log(product2["name"]);
+      console.log(product2["delivery-time"]); //use bracket notaion for properties that do not use dot notation
+
+      console.log(product2.rating.stars);
+      product2.fun(); //fun is a function property of objects => methods
+
+      /*JSON => javascript object notation with less features.
+        It doest support function and single quotes. Both property and values must be inside double quotes. 
+       It is universal becaus it is understood by different programming languages.  */
+
+      console.log(JSON.stringify(product2)); //stringigy is a method of JSON that convert js object to JSON
+
+      const jsonString = JSON.stringify(product2);
+
+      console.log(JSON.parse(jsonString)); //conveert json to js object
+
+      //localStorage : save values permanently unlike variables.
+
+      //Autoboxing : automatically wraps the data type in a speicial object with property and method. Works with string,bool and int
+
+      console.log("hello".length);
+      console.log("hello".toUpperCase());
+
+      const object1 = {
+        message: "hello", //objects are references that points to data on a computer memory
+      };
+
+      const object2 = object1; //copy by reference
+
+      //using const with object means that we cant change the reference of the object i.e the name of the object but we can change the properties of the object.
+
+      //note: object2 will also change because the referenc object1 has been changed.
+      object1.message = "It is finished !";
+      console.log(object1);
+      console.log(object2);
+
+      //objects are incomparable
+      const object3 = {
+        message: "It is finished !",
+      };
+      console.log(object1 === object3); //compares the references not the values hence false
+
+      console.log(object1 === object2); //true since they have the same references
+
+      const object4 = {
+        message: "Good Job!",
+        price: 700,
+      };
+      //  const message = object4.message;
+
+      const { message, price } = object4; // works same as commented code. It takes the property(message) and and assign it to a variable called message. This is destructuring
+      console.log(message);
+      console.log(price);
+
+      const object5 = {
+        //message: message
+        //shorthand property
+        message,
+
+        //method: function function1(){
+        // console.log('method');
+
+        //shorthand Method
+        method() {
+          console.log("message");
+        },
+      };
+
+      console.log(object5);
+      object5.method();
+    </script>
+  </body>
+</html>
