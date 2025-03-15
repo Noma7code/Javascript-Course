@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOMCART</title>
-    <script src="https://unpkg.com/@tailwindcss/browser@4 " ></script>
   </head>
   <body>
 
@@ -17,6 +16,12 @@
     >
       Subscribe
     </button>
+
+    <!--update the page as typing: onkeyup-->
+    <input class="input" type="text" placeholder="type anything"
+     onkeyup="const inputElement = document.querySelector('.input').value;
+    document.querySelector('.js-pageUpdate').innerHTML = inputElement;">
+    <p class="js-pageUpdate"></p>
 
     <!--Amazon Order Cost-->
     <div class="m-4 line-spacing">
@@ -66,15 +71,15 @@
       function calculateTotalCost() {
         const order = document.querySelector("#js-orderInput");
         let total;
-        if (order.value < 40) {
-          total = Number(order.value) + 10;
+        if (order.value < 4000) {
+          total = (Number(order.value)*100) + 1000;   //working in cents 
           console.log(total);
-        } else if (order.value > 40) {
+        } else if (order.value > 4000) {
           total = order.value;
         }
         document.querySelector(
           ".js-costDisplay"
-        ).innerHTML = `Total cost: ${total}`
+        ).innerHTML = `Total cost: ${total/100}`//cent to dollars
       };
     </script>
   </body>
