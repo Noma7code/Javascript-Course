@@ -6,9 +6,10 @@
     <title>DOMCART</title>
   </head>
   <body>
-
     <!--Youtube Subscription button-->
-    <p class="m-4 shadow shadow-4 border border-2 bg-gray-300">YouTube Subscribe Button</p>
+    <p class="m-4 shadow shadow-4 border border-2 bg-gray-300">
+      YouTube Subscribe Button
+    </p>
     <button
       class="border border-2 rounded-full bg-black text-white p-3 m-4 mt-0"
       id="js-subscribe"
@@ -18,9 +19,13 @@
     </button>
 
     <!--update the page as typing: onkeyup-->
-    <input class="input" type="text" placeholder="type anything"
-     onkeyup="const inputElement = document.querySelector('.input').value;
-    document.querySelector('.js-pageUpdate').innerHTML = inputElement;">
+    <input
+      class="input"
+      type="text"
+      placeholder="type anything"
+      onkeyup="const inputElement = document.querySelector('.input').value;
+    document.querySelector('.js-pageUpdate').innerHTML = inputElement;"
+    />
     <p class="js-pageUpdate"></p>
 
     <!--Amazon Order Cost-->
@@ -33,12 +38,14 @@
           type="text"
           placeholder="Cost of order"
           class="border border-2"
-          id="js-orderInput" onkeydown="
+          id="js-orderInput"
+          onkeydown="
         handleCostKeydown(event);"
         />
         <button
           class="bg-green-700 border border-2 text-white p-4"
-          onclick="calculateTotalCost();" >
+          onclick="calculateTotalCost();"
+        >
           Calculate
         </button>
 
@@ -66,21 +73,21 @@
         if (event.key === "Enter") {
           calculateTotalCost();
         }
-      };
+      }
 
       function calculateTotalCost() {
         const order = document.querySelector("#js-orderInput");
         let total;
         if (order.value < 4000) {
-          total = (Number(order.value)*100) + 1000;   //working in cents 
+          total = Number(order.value) * 100 + 1000; //working in cents
           console.log(total);
         } else if (order.value > 4000) {
           total = order.value;
         }
-        document.querySelector(
-          ".js-costDisplay"
-        ).innerHTML = `Total cost: ${total/100}`//cent to dollars
-      };
+        document.querySelector(".js-costDisplay").innerHTML = `Total cost: ${
+          total / 100
+        }`; //cent to dollars
+      }
     </script>
   </body>
 </html>
