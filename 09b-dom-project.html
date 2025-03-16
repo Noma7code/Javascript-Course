@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOMEX</title>
+   
+  </head>
+
+  <body>
+    <button>Search</button>
+    <button class="js-upload">Upload</button>
+
+    <button class="js-head" onclick="
+     document.querySelector('.js-display')
+      .innerHTML = 'You chose: heads'">Heads</button>
+
+    <button class="js-tail" onclick="
+      document.querySelector('.js-display')
+      .innerHTML = 'You chose: tails';">Tails</button>
+    <p class="js-display"></p>
+
+    <!--Submit button-->
+    <input class="input" type="text" placeholder="Name" onkeydown="handleKeyDown(event);" >
+    <button onclick="displayName();">Submit</button>
+
+    <p class="js-display2"></p>
+    
+
+
+    <script>
+      console.log(document.querySelector('button').innerHTML);
+
+      document.querySelector('.js-upload').innerHTML = 'upload done';
+
+      function handleKeyDown(event){
+        if(event.key==='Enter'){
+          const text = document.querySelector('.input').value;
+         document.querySelector('.js-display2').innerHTML = `Your name is ${text}`;
+        }
+      };
+
+      function displayName(){
+        const text = document.querySelector('.input').value;
+        document.querySelector('.js-display2').innerHTML = `Your name is: ${text}`;
+      }
+
+      
+
+     
+
+      
+
+     
+      
+
+    </script>
+
+  </body>
+</html>  
