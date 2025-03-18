@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CalculatorDOM</title>
+  </head>
+  <body class="p-4 m-4">
+    <!--Display paragragh-->
+    <p class="js-display"></p>
+
+    <p>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(1)"
+      >
+        1
+      </button>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(2);"
+      >
+        2
+      </button>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(3);"
+      >
+        3
+      </button>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+     calculate('+');"
+      >
+        +
+      </button>
+    </p>
+
+    <p>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(4);"
+      >
+        4
+      </button>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(5);"
+      >
+        5
+      </button>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(6);"
+      >
+        6
+      </button>
+      <button
+        class="bg-gray-200 border border-2 p-3 pr-4"
+        onclick="
+      calculate('-');"
+      >
+        -
+      </button>
+    </p>
+
+    <p>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(7);"
+      >
+        7
+      </button>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(8);"
+      >
+        8
+      </button>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(9)"
+      >
+        9
+      </button>
+      <button
+        class="bg-gray-200 border border-2 p-3 pr-3.5"
+        onclick="
+      calculate('*');"
+      >
+        *
+      </button>
+    </p>
+
+    <p>
+      <button
+        class="bg-gray-200 border border-2 p-3"
+        onclick="
+      calculate(0);"
+      >
+        0
+      </button>
+
+      <button
+        class="bg-gray-200 border border-2 p-3 pr-4.5"
+        onclick="
+     calculate('.');"
+      >
+        .
+      </button>
+
+      <button
+        class="bg-gray-200 border border-2 p-3 pr-2"
+        onclick="
+      calculation = eval(calculation);
+      displayCalc();
+      localStorage.setItem('calculation',calculation);"
+      >
+        =
+      </button>
+
+      <button
+        class="bg-gray-200 border border-2 p-3 pr-3.5"
+        onclick="
+       calculate('/');"
+      >
+        /
+      </button>
+    </p>
+
+    <p>
+      <button
+        class="bg-gray-200 border border-2 p-3 pr-6"
+        onclick="
+      calculation ='';
+      displayCalc();
+      localStorage.setItem('calculation',calculation); "
+      >
+        Clear
+      </button>
+    </p>
+
+    <script>
+      let calculation = localStorage.getItem("calculation") || " ";
+      // Display the calculation when the page first loads.
+      displayCalc();
+
+      function calculate(value) {
+        calculation += value;
+        // Display the calculation on the page
+        displayCalc();
+
+        localStorage.setItem("calculation", calculation);
+      }
+
+      function displayCalc() {
+        document.querySelector(".js-display").innerHTML = calculation;
+      }
+    </script>
+  </body>
+</html>
