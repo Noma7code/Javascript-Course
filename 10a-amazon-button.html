@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon button</title>
+  </head>
+  <style>
+    .cart-button {
+      border: none;
+      background-color: rgb(255, 216, 20);
+      padding: 10px 40px;
+      border-radius: 40px;
+    }
+    .request-button {
+      border: none;
+      background-color: black;
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    .schedule-button {
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      color: black;
+      background-color: rgb(230, 230, 230);
+      border-radius: 5px;
+    }
+    .toggle-button{
+      border:none;
+      background-color: gainsboro;
+      color:black;
+      padding:10px 20px;
+      border-radius: 5px;
+      cursor:pointer;
+    }
+    .is-toggled{
+      border:none;
+      background-color: black;
+      color:white;
+      padding:10px 20px;
+      border-radius: 5px;
+      cursor:pointer;
+    }
+
+  </style>
+  <body>
+    <!--Amazon shopping button-->
+    <button class="cart-button">Add to Cart</button>
+
+    <!--Uber button-->
+    <p>
+      <button class="request-button">Request now</button>
+      <button class="schedule-button">Schedule for later</button>
+    </p>
+    <button class="js-button">Test</button>
+
+    <p>
+      <button class="toggle-button js-button-1" onclick="toggleColor('.js-button-1');">
+        Gaming
+      </button>
+      <button class="toggle-button js-button-2" onclick="toggleColor('.js-button-2');">
+        Music
+      </button>
+      <button class="toggle-button js-button-3" onclick="toggleColor('.js-button-3');">
+        Tech
+      </button>
+    </p>
+  </body>
+  <script>
+    //use classList.contains()to check if a classname exist
+    console.log(
+      document.querySelector(".js-button").classList.contains("js-button")
+    );
+
+    function toggleColor(selector){
+      
+    const toggleElement = document.querySelector(selector);
+    if(!toggleElement.classList.contains('is-toggled')){
+       // Before turning this button ON, check if there's
+    // already a button that's turned ON and turn it OFF.
+      turnOffPreviousButton();
+     (toggleElement.classList.add('is-toggled')) ;
+   
+    }
+        
+    else{
+      toggleElement.classList.remove('is-toggled');
+
+    }
+    
+    
+    };
+    function turnOffPreviousButton(){
+      const previousButton = document.querySelector('.is-toggled');
+      if(previousButton){
+        previousButton.classList.remove('is-toggled');
+      }
+    }
+
+  </script>
+</html>
