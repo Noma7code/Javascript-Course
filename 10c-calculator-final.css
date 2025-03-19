@@ -1,0 +1,30 @@
+body {
+  background-color: black;
+  font-family: Arial;
+}
+.input-button {
+  border: none;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 20px;
+  background-color: rgb(51, 51, 51);
+  font-size: 30px;
+  margin: 5px;
+  color:white;
+  cursor: pointer;
+}
+.display {
+  color: white;
+  font-size: 45px;
+}
+.clear-button {
+  font-size: 17px;
+  padding:15px;
+  cursor: pointer; 
+}
+  
+.operator-button {
+  background-color: orange;
+  cursor: pointer;
+}
