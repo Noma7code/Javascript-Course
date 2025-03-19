@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CalculatorDOM</title>
+    <link rel="stylesheet" href="10c-calculator-final.css">
+  </head>
+  <body class="p-4 m-4">
+    <!--Display paragragh-->
+    <p class="js-display display"></p>
+
+    <p>
+      <button
+        class="input-button"
+        onclick="
+      calculate(1)"
+      >
+        1
+      </button>
+      <button
+        class="input-button"
+        onclick="
+      calculate(2);"
+      >
+        2
+      </button>
+      <button
+        class="input-button"
+        onclick="
+      calculate(3);"
+      >
+        3
+      </button>
+      <button
+        class="input-button operator-button"
+        onclick="
+     calculate('+');"
+      >
+        +
+      </button>
+    </p>
+
+    <p>
+      <button
+        class="input-button"
+        onclick="
+      calculate(4);"
+      >
+        4
+      </button>
+      <button
+        class="input-button"
+        onclick="
+      calculate(5);"
+      >
+        5
+      </button>
+      <button
+        class="input-button"
+        onclick="
+      calculate(6);"
+      >
+        6
+      </button>
+      <button
+        class="input-button operator-button"
+        onclick="
+      calculate('-');"
+      >
+        -
+      </button>
+    </p>
+
+    <p>
+      <button
+        class="input-button"
+        onclick="
+      calculate(7);"
+      >
+        7
+      </button>
+      <button
+        class="input-button"
+        onclick="
+      calculate(8);"
+      >
+        8
+      </button>
+      <button
+        class="input-button"
+        onclick="
+      calculate(9)"
+      >
+        9
+      </button>
+      <button
+        class="input-button operator-button"
+        onclick="
+      calculate('*');"
+      >
+        *
+      </button>
+    </p>
+
+    <p>
+      <button
+        class="input-button"
+        onclick="
+      calculate(0);"
+      >
+        0
+      </button>
+
+      <button
+        class="input-button "
+        onclick="
+     calculate('.');"
+      >
+        .
+      </button>
+
+      <button
+        class="input-button "
+        onclick="
+      calculation = eval(calculation);
+      displayCalc();
+      localStorage.setItem('calculation',calculation);"
+      >
+        =
+      </button>
+
+      <button
+        class="input-button operator-button"
+        onclick="
+       calculate('/');"
+      >
+        /
+      </button>
+    </p>
+
+    <p>
+      <button
+        class="input-button clear-button"
+        onclick="
+      calculation ='';
+      displayCalc();
+      localStorage.setItem('calculation',calculation); "
+      >
+        Clear
+      </button>
+    </p>
+
+    <script>
+      let calculation = localStorage.getItem("calculation") || " ";
+      // Display the calculation when the page first loads.
+      displayCalc();
+
+      function calculate(value) {
+        calculation += value;
+        // Display the calculation on the page
+        displayCalc();
+
+        localStorage.setItem("calculation", calculation);
+      }
+
+      function displayCalc() {
+        document.querySelector(".js-display").innerHTML = calculation;
+      }
+    </script>
+  </body>
+</html>
