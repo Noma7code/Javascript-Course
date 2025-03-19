@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOMCART</title>
+    <style>
+      body {
+        font-family: Arial;
+        font-size: 18px;
+      }
+      .subscribe-button {
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 10px 15px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-bottom: 30px;
+        margin-right: 40px;
+      }
+      .is-subscribed {
+        background-color: rgb(220, 220, 220);
+        color: black;
+      }
+      .calculate-button {
+        color: white;
+        background-color: rgb(4, 165, 4);
+        font-size: 15px;
+        padding: 15px;
+        cursor: pointer;
+      }
+      .cost-input,
+      .keyup-input {
+        padding: 15px 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Youtube Subscription button-->
+    <p class=" ">YouTube Subscribe Button</p>
+    <div class="subscribe-div">
+      <button class="subscribe-button" id="js-subscribe" onclick="Subscribe();">
+        Subscribe
+      </button>
+
+      <!--update the page as typing: onkeyup-->
+      <input
+        class="input keyup-input"
+        type="text"
+        placeholder="type anything"
+        onkeyup="const inputElement = document.querySelector('.input').value;
+      document.querySelector('.js-pageUpdate').innerHTML = inputElement;"
+      />
+      <p class="js-pageUpdate"></p>
+    </div>
+
+    <!--Amazon Order Cost-->
+    <div class="">
+      <p>Amazon Shipping Calculator</p>
+      <p>Orders under $40 = +$10 shipping.</p>
+      <p>Orders over $40 = FREE shipping</p>
+      <div class="">
+        <input
+          type="text"
+          class="cost-input"
+          placeholder="Cost of order"
+          class=""
+          id="js-orderInput"
+          onkeydown="
+        handleCostKeydown(event);"
+        />
+        <button class="calculate-button" onclick="calculateTotalCost();">
+          Calculate
+        </button>
+      </div>
+    </div>
+
+    <p class="js-costDisplay js-error-message"></p>
+
+    <script>
+      const SubscribeLM = document.querySelector("#js-subscribe");
+      function Subscribe() {
+        if (SubscribeLM.innerText === "Subscribe") {
+          SubscribeLM.innerText = "Subscribed";
+          SubscribeLM.classList.add("is-subscribed");
+        } else {
+          SubscribeLM.innerText = "Subscribe";
+          SubscribeLM.classList.remove("is-subscribed");
+        }
+      }
+
+      //Amazon order
+
+      function handleCostKeydown(event) {
+        if (event.key === "Enter") {
+          calculateTotalCost();
+        }
+      }
+
+      function calculateTotalCost() {
+        const order = document.querySelector("#js-orderInput");
+        let total;
+        //display error is value is < 0
+        if (order.value < 0) {
+          const errorDisplay = document.querySelector(".js-error-message");
+          errorDisplay.innerHTML = "Error: cost cannot be less than $0";
+          errorDisplay.style.color = "red";
+        } //if value is >0 
+          else if (order.value < 4000) {
+          total = Number(order.value) * 100 + 1000; //working in cents
+          console.log(total);
+          document.querySelector(".js-costDisplay").innerHTML = `Total cost: ${
+            total / 100
+          }`;
+        } else if (order.value > 4000) {
+          total = order.value;
+          document.querySelector(".js-costDisplay").innerHTML = `Total cost: ${
+            total / 100
+          }`;
+        }
+        //cent to dollars
+      }
+    </script>
+  </body>
+</html>
