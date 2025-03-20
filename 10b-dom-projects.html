@@ -107,8 +107,8 @@
           const errorDisplay = document.querySelector(".js-error-message");
           errorDisplay.innerHTML = "Error: cost cannot be less than $0";
           errorDisplay.style.color = "red";
-        } //if value is >0 
-          else if (order.value < 4000) {
+        } //if value is >0
+        else if (order.value < 4000) {
           total = Number(order.value) * 100 + 1000; //working in cents
           console.log(total);
           document.querySelector(".js-costDisplay").innerHTML = `Total cost: ${
