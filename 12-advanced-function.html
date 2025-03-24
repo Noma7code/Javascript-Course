@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adfunctions</title>
+  </head>
+  <body>
+    <script>
+      //functions are values and can be passed to a variable
+      const function1 = function greeting() {
+        console.log("hello world"); //since the function is stored to a variable,
+        // there will beno need to have a function name i.e
+        /* const function1 = function(){
+      console.log('hello world')}; -> anonymous function
+      */
+      };
+      function1(); //call the variale as a function
+
+      function run(foot) {
+        foot();
+      }
+      run(function () {
+        console.log("you are welcome"); //the function as parameter is a call back function
+      });
+
+      //setTime out allows us to call functin in the future.
+      //asynchronous code: the pc doesnt wait for the entire line to execute.
+
+      setTimeout(function () {
+        console.log("timeout");
+      }, 4000);
+
+      console.log("next line");
+      
+      //asynchronous code
+      setInterval(function(){
+        console.log('interval')
+      },3000);
+    </script>
+  </body>
+</html>
