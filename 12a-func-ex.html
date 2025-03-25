@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FuncEx</title>
+    <title>FuncEX</title>
   </head>
   <body>
-
     <button class="js-start" onclick="updateButton();">Start</button>
+    <button class="js-add-cart" onclick="addToCart();">Add to Cart</button>
+    <p class="display"></p>
     <script>
       const add = function () {
         console.log(2 + 3);
@@ -15,7 +16,7 @@
       add();
       add();
 
-      //call back function 
+      //call back function
       function runTwice(fun) {
         fun();
         fun();
@@ -25,20 +26,36 @@
         console.log("callBack");
       });
 
-    
       // Grouping the JavaScript code into a function
       // is optional, but it is a bit cleaner.
       function updateButton() {
-        const button = document.querySelector('.js-start');
+        const button = document.querySelector(".js-start");
+        button.innerText = "Loading...";
 
-        setTimeout(function() {
-          button.innerHTML = 'Finished!';
+        // setTimeout(function() {
+        //   button.innerHTML = 'Finished!';
+        // }, 2000);
+
+        setTimeout(function () {
+          button.innerHTML = "Finished";
         }, 1000);
       }
-    </script>
-      
 
+      //clearTime out
+      let timeoutId;
+      function addToCart() {
+        const addButton = document.querySelector(".js-add-cart");
+        const display = document.querySelector(".display");
+        display.innerHTML = "Added";
 
+        //cancel the previous timeout so that
+        // it doesn't remove the message too quickly.
+        clearTimeout(timeoutId);
+
+        timeoutId = setTimeout(function () {
+          display.innerHTML = "";
+        }, 2000);
+      }
     </script>
   </body>
 </html>
