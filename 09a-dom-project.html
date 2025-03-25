@@ -4,66 +4,90 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOMCART</title>
+    <style>
+      body {
+        font-family: Arial;
+        font-size: 18px;
+      }
+      .subscribe-button {
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 10px 15px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+        margin-bottom: 30px;
+        margin-right: 40px;
+      }
+      .is-subscribed {
+        background-color: rgb(220, 220, 220);
+        color: black;
+      }
+      .calculate-button {
+        color: white;
+        background-color: rgb(4, 165, 4);
+        font-size: 15px;
+        padding: 15px;
+        cursor: pointer;
+      }
+      .cost-input,
+      .keyup-input {
+        padding: 15px 40px;
+      }
+    </style>
   </head>
   <body>
     <!--Youtube Subscription button-->
-    <p class="m-4 shadow shadow-4 border border-2 bg-gray-300">
-      YouTube Subscribe Button
-    </p>
-    <button
-      class="border border-2 rounded-full bg-black text-white p-3 m-4 mt-0"
-      id="js-subscribe"
-      onclick="Subscribe();"
-    >
-      Subscribe
-    </button>
+    <p class=" ">YouTube Subscribe Button</p>
+    <div class="subscribe-div">
+      <button class="subscribe-button" id="js-subscribe" onclick="Subscribe();">
+        Subscribe
+      </button>
 
-    <!--update the page as typing: onkeyup-->
-    <input
-      class="input"
-      type="text"
-      placeholder="type anything"
-      onkeyup="const inputElement = document.querySelector('.input').value;
-    document.querySelector('.js-pageUpdate').innerHTML = inputElement;"
-    />
-    <p class="js-pageUpdate"></p>
+      <!--update the page as typing: onkeyup-->
+      <input
+        class="input keyup-input"
+        type="text"
+        placeholder="type anything"
+        onkeyup="const inputElement = document.querySelector('.input').value;
+      document.querySelector('.js-pageUpdate').innerHTML = inputElement;"
+      />
+      <p class="js-pageUpdate"></p>
+    </div>
 
     <!--Amazon Order Cost-->
-    <div class="m-4 line-spacing">
+    <div class="">
       <p>Amazon Shipping Calculator</p>
       <p>Orders under $40 = +$10 shipping.</p>
       <p>Orders over $40 = FREE shipping</p>
-      <div class="flex flex-row gap-2 mt-8">
+      <div class="">
         <input
           type="text"
+          class="cost-input"
           placeholder="Cost of order"
-          class="border border-2"
+          class=""
           id="js-orderInput"
           onkeydown="
         handleCostKeydown(event);"
         />
-        <button
-          class="bg-green-700 border border-2 text-white p-4"
-          onclick="calculateTotalCost();"
-        >
+        <button class="calculate-button" onclick="calculateTotalCost();">
           Calculate
         </button>
-
-        <p class="m-4 js-costDisplay"></p>
       </div>
     </div>
+
+    <p class="js-costDisplay"></p>
 
     <script>
       const SubscribeLM = document.querySelector("#js-subscribe");
       function Subscribe() {
         if (SubscribeLM.innerText === "Subscribe") {
           SubscribeLM.innerText = "Subscribed";
-          SubscribeLM.style.color = "black";
-          SubscribeLM.style.backgroundColor = "gray";
+          SubscribeLM.classList.add("is-subscribed");
         } else {
           SubscribeLM.innerText = "Subscribe";
-          SubscribeLM.style.color = "white";
-          SubscribeLM.style.backgroundColor = "black";
+          SubscribeLM.classList.remove("is-subscribed");
         }
       }
 
